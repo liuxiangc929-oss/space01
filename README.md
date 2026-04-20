@@ -1,2 +1,2 @@
-# space01-tetris
+# space01
 将生词直接变为有逻辑的文章。
