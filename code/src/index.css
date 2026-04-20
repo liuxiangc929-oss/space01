@@ -1,0 +1,116 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --color-apple-blue: #007AFF;
+  --color-text-primary: #1D1D1F;
+  --color-text-secondary: #8E8E93;
+  --color-bg-main: #FFFFFF;
+  --color-bg-secondary: #F5F5F7;
+  --color-border-main: #D1D1D6;
+  --color-glass-bg: rgba(255, 255, 255, 0.72);
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-text-primary);
+  /* Fallback background, overridden by App.tsx aurora */
+  background-color: var(--color-bg-secondary);
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* --- LIQUID GLASS EFFECTS --- */
+
+@keyframes aurora {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.bg-aurora-animated {
+  background: linear-gradient(-45deg, #f5f7fa, #c3cfe2, #e0c3fc, #ecf4ff, #faefff);
+  background-size: 400% 400%;
+  animation: aurora 20s ease infinite;
+}
+
+.bg-aurora-static {
+  background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 30%, #e0c3fc 70%, #ecf4ff 100%);
+  background-attachment: fixed;
+}
+
+/* Extra frosted highly transparent liquid glass */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(54px) saturate(240%);
+  -webkit-backdrop-filter: blur(54px) saturate(240%);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  box-shadow: 
+    0 40px 80px -20px rgba(0, 0, 0, 0.08), 
+    0 0 40px rgba(255, 255, 255, 0.4), 
+    inset 0 1px 2px rgba(255, 255, 255, 0.8), 
+    inset 0 -1px 2px rgba(255, 255, 255, 0.2);
+}
+
+/* Semi-opaque frosted acrylic for content readability (e.g. article area) */
+.glass-acrylic {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(64px) saturate(200%);
+  -webkit-backdrop-filter: blur(64px) saturate(200%);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 
+    0 40px 80px -20px rgba(0, 0, 0, 0.06), 
+    0 0 40px rgba(255, 255, 255, 0.4), 
+    inset 0 2px 4px rgba(255, 255, 255, 0.9);
+}
+
+/* Liquid flow interactive buttons */
+.glass-button {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(32px) saturate(200%);
+  -webkit-backdrop-filter: blur(32px) saturate(200%);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  box-shadow: 0 12px 24px 0 rgba(0, 0, 0, 0.08), inset 0 2px 3px rgba(255, 255, 255, 1);
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.glass-button:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(255, 255, 255, 1);
+  box-shadow: 0 16px 36px 0 rgba(0, 0, 0, 0.14), inset 0 3px 6px rgba(255, 255, 255, 1);
+  transform: translateY(-2px);
+}
+
+.glass-button:active:not(:disabled) {
+  transform: translateY(0);
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 6px 16px 0 rgba(0, 0, 0, 0.06);
+}
+
+/* Premium Apple-like Scrollbar for Webkit */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+  margin: 24px 0; /* Add safety margins to prevent collision with container rounded corners */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+/* Explicitly hide the legacy scrollbar arrows that were getting clipped */
+.custom-scrollbar::-webkit-scrollbar-button {
+  display: none;
+}
