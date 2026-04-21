@@ -60,7 +60,7 @@ v. 意思2")。
 
   const text = response.text || "[]";
   const parsed = JSON.parse(text) as any[];
-  
+
   // Assign UUIDs and isUserWord flag back to the cleaned array
   return parsed.map(w => ({
     id: crypto.randomUUID(),
@@ -78,7 +78,7 @@ export async function generateArticle(
   if (!ai) throw new Error("GoogleGenAI not initialized. Check your GEMINI_API_KEY.");
 
   const wordsList = words.map((w) => `- ${w.word} (${w.pos} ${w.originalDef})`).join("\n");
-  
+
   const prompt = `
 Write an engaging and logically coherent English article at the "${difficulty}" difficulty level.
 You MUST include all of the following vocabulary words in the article, with their specified meanings in mind:

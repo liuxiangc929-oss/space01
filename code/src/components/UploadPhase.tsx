@@ -39,14 +39,14 @@ export function UploadPhase({ onComplete }: { onComplete: (words: WordObject[]) 
 
   return (
     <div className="relative flex flex-col items-center justify-between h-full max-w-5xl mx-auto w-full pt-1 pb-4 sm:pt-2 sm:pb-6">
-      
+
       {/* Ambient Background Glows */}
       <div className="fixed top-[-10%] left-[-5%] w-[400px] h-[400px] bg-apple-blue/20 rounded-full blur-[120px] pointer-events-none z-0" />
       <div className="fixed bottom-[10%] right-[-5%] w-[500px] h-[500px] bg-purple-500/10 rounded-full blur-[150px] pointer-events-none z-0" />
 
       {/* Top Section: Header & Hero (Pushed aggressively up) */}
       <div className="flex flex-col items-center text-center relative z-10 w-full max-w-4xl -mt-6 sm:-mt-2">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
@@ -60,7 +60,7 @@ export function UploadPhase({ onComplete }: { onComplete: (words: WordObject[]) 
           <span className="text-[32px] sm:text-[42px] font-bold tracking-tighter text-text-primary">LexiFlow</span>
         </motion.div>
 
-        <motion.h1 
+        <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
@@ -68,7 +68,7 @@ export function UploadPhase({ onComplete }: { onComplete: (words: WordObject[]) 
         >
           让孤立的生词，<span className="text-transparent bg-clip-text bg-gradient-to-r from-[#007AFF] to-[#5856D6]">长出自己的故事。</span>
         </motion.h1>
-        <motion.p 
+        <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
@@ -93,52 +93,52 @@ export function UploadPhase({ onComplete }: { onComplete: (words: WordObject[]) 
         <div className="w-full glass-panel rounded-[32px] sm:rounded-[40px] p-3 sm:p-4 cursor-pointer relative group overflow-hidden">
           {/* Subtle hover gradient inside the card */}
           <div className="absolute inset-0 bg-gradient-to-b from-apple-blue/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-          
+
           <div className={`relative rounded-[24px] sm:rounded-[32px] border-2 border-dashed transition-all duration-500 overflow-hidden ${isHovering ? 'border-apple-blue/40 bg-apple-blue/[0.02]' : 'border-border-main/60 bg-[#F5F5F7]/30'}`}>
             <div className="px-6 py-10 sm:py-16 flex flex-col items-center justify-center text-center relative z-10">
-               
-               {/* Icon Animation Composition */}
-               <div className="relative mb-6 sm:mb-8">
-                 <div className={`absolute inset-0 bg-apple-blue/10 rounded-full blur-xl transition-transform duration-700 ${isHovering ? 'scale-150' : 'scale-100'}`} />
-                 <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-[20px] sm:rounded-[24px] bg-white shadow-md flex items-center justify-center text-apple-blue border border-black/[0.04] relative z-10">
-                   <ScanText strokeWidth={1.5} className="w-8 h-8 sm:w-10 sm:h-10" />
-                 </div>
-               </div>
 
-               <p className="text-[18px] sm:text-[22px] font-semibold mb-2 sm:mb-3 text-text-primary tracking-tight">点击或拖拽文件至此提取</p>
-               <p className="text-[13px] sm:text-[15px] text-text-secondary mb-8 sm:mb-10 font-medium tracking-wide">支持图片 (JPG/PNG) 或文档 (PDF/DOCX)</p>
-               
-               {/* Fake Button */}
-               <div className="bg-text-primary text-white flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 rounded-full font-medium text-[14px] sm:text-[15px] transition-transform shadow-sm group-hover:bg-apple-blue">
-                  注入演示数据并进入下一步
-                  <ArrowRight className="w-4 h-4 opacity-70 group-hover:translate-x-1 transition-transform" />
-               </div>
+              {/* Icon Animation Composition */}
+              <div className="relative mb-6 sm:mb-8">
+                <div className={`absolute inset-0 bg-apple-blue/10 rounded-full blur-xl transition-transform duration-700 ${isHovering ? 'scale-150' : 'scale-100'}`} />
+                <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-[20px] sm:rounded-[24px] bg-white shadow-md flex items-center justify-center text-apple-blue border border-black/[0.04] relative z-10">
+                  <ScanText strokeWidth={1.5} className="w-8 h-8 sm:w-10 sm:h-10" />
+                </div>
+              </div>
+
+              <p className="text-[18px] sm:text-[22px] font-semibold mb-2 sm:mb-3 text-text-primary tracking-tight">点击或拖拽文件至此提取</p>
+              <p className="text-[13px] sm:text-[15px] text-text-secondary mb-8 sm:mb-10 font-medium tracking-wide">支持图片 (JPG/PNG) 或文档 (PDF/DOCX)</p>
+
+              {/* Fake Button */}
+              <div className="bg-text-primary text-white flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 rounded-full font-medium text-[14px] sm:text-[15px] transition-transform shadow-sm group-hover:bg-apple-blue">
+                注入演示数据并进入下一步
+                <ArrowRight className="w-4 h-4 opacity-70 group-hover:translate-x-1 transition-transform" />
+              </div>
             </div>
           </div>
         </div>
       </motion.div>
 
       {/* Bottom Section: Feature Steps (Pushed downwards aggressively) */}
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 0.6 }}
         className="flex justify-center flex-row gap-6 sm:gap-16 pb-0 sm:pb-2 relative z-10 opacity-70 mt-auto translate-y-4 sm:translate-y-6"
       >
-         <div className="flex flex-col items-center gap-2 sm:gap-3">
-            <ScanText className="w-5 h-5 sm:w-6 sm:h-6 text-text-secondary" />
-            <span className="text-[11px] sm:text-[13px] font-medium text-text-secondary tracking-widest uppercase text-center">1. 精准提取</span>
-         </div>
-         <div className="w-px h-8 sm:h-10 bg-border-main/50 self-center" />
-         <div className="flex flex-col items-center gap-2 sm:gap-3">
-            <BrainCircuit className="w-5 h-5 sm:w-6 sm:h-6 text-text-secondary" />
-            <span className="text-[11px] sm:text-[13px] font-medium text-text-secondary tracking-widest uppercase text-center">2. 语境编织</span>
-         </div>
-         <div className="w-px h-8 sm:h-10 bg-border-main/50 self-center" />
-         <div className="flex flex-col items-center gap-2 sm:gap-3">
-            <BookOpen className="w-5 h-5 sm:w-6 sm:h-6 text-text-secondary" />
-            <span className="text-[11px] sm:text-[13px] font-medium text-text-secondary tracking-widest uppercase text-center">3. 沉浸阅读</span>
-         </div>
+        <div className="flex flex-col items-center gap-2 sm:gap-3">
+          <ScanText className="w-5 h-5 sm:w-6 sm:h-6 text-text-secondary" />
+          <span className="text-[11px] sm:text-[13px] font-medium text-text-secondary tracking-widest uppercase text-center">1. 精准提取</span>
+        </div>
+        <div className="w-px h-8 sm:h-10 bg-border-main/50 self-center" />
+        <div className="flex flex-col items-center gap-2 sm:gap-3">
+          <BrainCircuit className="w-5 h-5 sm:w-6 sm:h-6 text-text-secondary" />
+          <span className="text-[11px] sm:text-[13px] font-medium text-text-secondary tracking-widest uppercase text-center">2. 语境编织</span>
+        </div>
+        <div className="w-px h-8 sm:h-10 bg-border-main/50 self-center" />
+        <div className="flex flex-col items-center gap-2 sm:gap-3">
+          <BookOpen className="w-5 h-5 sm:w-6 sm:h-6 text-text-secondary" />
+          <span className="text-[11px] sm:text-[13px] font-medium text-text-secondary tracking-widest uppercase text-center">3. 沉浸阅读</span>
+        </div>
       </motion.div>
 
     </div>

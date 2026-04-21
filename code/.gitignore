@@ -1,0 +1,23 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Dependencies
+node_modules/
+dist/
+dist-ssr/
+
+# Caches
+.eslintcache
+.tsbuildinfo
+
+# Environment variables
+.env
+.env.test
+.env.production
+.env.local
+
+# OS files
+.DS_Store
+Thumbs.db
